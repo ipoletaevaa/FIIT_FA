@@ -2,8 +2,21 @@
 
 namespace TreeDataStructures.Implementations.AVL;
 
-public class AvlNode<TKey, TValue>(TKey key, TValue value)
-    : Node<TKey, TValue, AvlNode<TKey, TValue>>(key, value)
+public class AvlNode<TKey, TValue> : Node<TKey, TValue, AvlNode<TKey, TValue>>
+    where TKey : IComparable<TKey>
 {
-    public int Height { get; set; } = 1;
+    private int _height;
+
+    public AvlNode(TKey key, TValue value)
+        : base(key, value)
+    {
+        ArgumentNullException.ThrowIfNull(key);
+        _height = 1;
+    }
+
+    public int Height
+    {
+        get => _height;
+        set => _height = value;
+    }
 }

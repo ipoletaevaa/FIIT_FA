@@ -1,6 +1,6 @@
 ﻿namespace TreeDataStructures.Interfaces;
 
-public readonly record struct TreeEntry<TKey, TValue>(TKey Key, TValue Value, int Depth);
+public readonly record struct TreeEntry<TKey, TValue>(TKey Key, TValue Value, int Height);
 
 public interface ITree<TKey, TValue> : IDictionary<TKey, TValue>
 {
